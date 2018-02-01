@@ -1,0 +1,55 @@
+page-doctor-search {
+  .price-badge {
+    font-size: 1.3rem;
+  }
+  b {
+      font-size: 13px;
+  }
+  ion-label > h2 {
+      font-weight: 500;
+  }
+
+  .count {
+      box-sizing: border-box;
+      height: 20px;
+      width: 20px;
+      background-color: #ccc;
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      display: inline-block;
+      line-height: 20px;
+      font-size: 12px;
+      float: right;
+  }
+
+  .avatar {
+      display: block;
+      width: 40px;
+      height: 40px;
+      line-height: 40px; 
+      text-align: center;
+      overflow: hidden;
+      font-size: 22px;
+  }
+
+  .received {
+      background-color: lighten(#ff00ff, 20%);
+  }
+
+  .stitching {
+      background-color: lighten(#4a86ef, 20%);
+  }
+
+  .ready {
+      background-color: lighten(#32db64, 20%);
+  }
+
+  .delivered {
+      background-color: lighten(#32CD32, 20%);
+  }
+
+  [search] {
+      margin-bottom: 0;
+  }
+}

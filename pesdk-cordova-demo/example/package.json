@@ -1,0 +1,41 @@
+{
+    "version": "0.1.0",
+    "name": "pesdk-demo",
+    "cordova_name": "pesdk-demo",
+    "description": "Cordova/Phonegap demo for the PhotoEditor SDK.",
+    "author": "",
+    "license": "Proprietary",
+    "cordova": {
+        "id": "pesdk",
+        "platforms": [
+            "android",
+            "ios"
+        ],
+        "plugins": {
+            "cordova-plugin-whitelist": {},
+            "cordova-plugin-console": {},
+            "cordova-image-picker": {
+                "PHOTO_LIBRARY_USAGE_DESCRIPTION": " "
+            },
+            "cordova-plugin-pesdk": {}
+        }
+    },
+    "keywords": [
+        "cordova",
+        "cordova-android",
+        "cordova-ios",
+        "phonegap",
+        "camera"
+    ],
+    "dependencies": {
+        "cordova-android": "^6.2.3",
+        "cordova-image-picker": "^2.2.3",
+        "cordova-ios": "^4.4.0",
+        "cordova-plugin-console": "^1.0.7",
+        "cordova-plugin-pesdk": "..",
+        "cordova-plugin-whitelist": "1",
+        "pesdk": "file:///Users/malte/Developer/9elements/pesdk-cordova-demo",
+        "pesdk-cordova-plugin": "file:///Users/malte/Developer/9elements/pesdk-cordova-demo",
+        "xcode": "https://github.com/alunny/node-xcode.git"
+    }
+}

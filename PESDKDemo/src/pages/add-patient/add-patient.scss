@@ -1,0 +1,38 @@
+page-add-patient {
+
+  .patient-main {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    
+    > ion-icon {
+      color: #ccc;
+      font-size: 4em;
+    }
+  }
+
+  ion-item {
+    min-height: 70px;
+
+    .item-inner {
+      min-height: 68px;
+    }
+  }
+
+  .add-doc-btn {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    padding: 0 5px;
+
+    > * {
+      flex: 1;
+    }
+
+    button + button {
+      margin-left: 20px;
+    }
+  }
+}

@@ -1,0 +1,83 @@
+import { HistoryPage } from './../pages/history/history';
+import { NotificationsPage } from './../pages/notifications/notifications';
+
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
+
+import { NgModule, ErrorHandler } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { EmailComposer } from '@ionic-native/email-composer';
+
+import { MyApp } from './app.component';
+import { HomePage } from '../pages/home/home';
+import { AddPatientPage } from '../pages/add-patient/add-patient';
+import { MyVisitsPage } from '../pages/my-visits/my-visits';
+import { SignupPage } from './../pages/signup/signup';
+import { LoginPage } from './../pages/login/login';
+import { ListPage } from './../pages/list/list';
+import { ScanUploadPage } from './../pages/scan-upload/scan-upload';
+import { MyReportsPage } from './../pages/my-reports/my-reports';
+import { MyProfilePage } from './../pages/my-profile/my-profile';
+import { AddDoctorPage } from './../pages/add-doctor/add-doctor';
+import { DoctorConnectPage } from '../pages/doctor-connect/doctor-connect';
+import { DoctorSearchPage } from '../pages/doctor-search/doctor-search';
+import { SearchInputPage } from '../pages/search-input/search-input';
+import { TimingsPage } from '../pages/timings/timings';
+import { ChatBotPage } from '../pages/chat-bot/chat-bot';
+
+@NgModule({
+  declarations: [
+    MyApp,
+    HomePage,
+    AddDoctorPage,
+    AddPatientPage,
+    MyProfilePage,
+    MyReportsPage,
+    MyVisitsPage,
+    ScanUploadPage,
+    DoctorConnectPage,
+    DoctorSearchPage,
+    SearchInputPage,
+    NotificationsPage,
+    HistoryPage,
+    TimingsPage,
+    ChatBotPage,
+    ListPage,
+    LoginPage,
+    SignupPage
+  ],
+  imports: [
+    IonicModule.forRoot(MyApp),
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  bootstrap: [IonicApp],
+  entryComponents: [
+    MyApp,
+    HomePage,
+    AddDoctorPage,
+    AddPatientPage,
+    MyProfilePage,
+    MyReportsPage,
+    MyVisitsPage,
+    ScanUploadPage,
+    DoctorConnectPage,
+    DoctorSearchPage,
+    SearchInputPage,
+    NotificationsPage,
+    TimingsPage,
+    ChatBotPage,
+    HistoryPage,
+    ListPage,
+    LoginPage,
+    SignupPage
+  ],
+  providers: [
+    EmailComposer,
+    StatusBar,
+    SplashScreen,
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
+  ]
+})
+export class AppModule {}

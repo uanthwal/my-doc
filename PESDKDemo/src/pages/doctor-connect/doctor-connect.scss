@@ -1,0 +1,14 @@
+page-doctor-connect {
+  .scroll-content {
+    background-color: #F8F8F8;
+    height: calc(100vh - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  ion-icon {
+    font-size: 5em;
+    color: #ccc;
+  }
+}
