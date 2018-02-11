@@ -18,23 +18,27 @@
       <!-- Product image area -->
     </div>
     <ion-item>
+      <ion-label floating>User ID</ion-label>
+      <ion-input type="text" [(ngModel)]="userId"></ion-input>
+    </ion-item>
+    <ion-item>
       <ion-label floating>Full name</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" [(ngModel)]="fullName"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Mobile</ion-label>
-      <ion-input type="number"></ion-input>
+      <ion-input type="number" [(ngModel)]="mobileNumber"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Email</ion-label>
-      <ion-input type="email"></ion-input>
+      <ion-input type="email" [(ngModel)]="email"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Password</ion-label>
-      <ion-input type="password"></ion-input>
+      <ion-input type="password" [(ngModel)]="password"></ion-input>
     </ion-item>
 
     <ion-item role>
@@ -42,12 +46,11 @@
       <ion-select [(ngModel)]="role">
         <ion-option value="doctor">Doctor</ion-option>
         <ion-option value="healthWorker">Health Worker</ion-option>
-        <ion-option value="patient">Patient</ion-option>
       </ion-select>
     </ion-item>
 
     <div class="signup-center">
-      <button ion-button round block>Sign Up</button>
+      <button ion-button round block (click)="onClickSignUp()">Sign Up</button>
     </div>
 
     <ion-item register>

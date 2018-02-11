@@ -13,6 +13,12 @@ import { NavController, NavParams, Nav } from 'ionic-angular';
   templateUrl: 'signup.html',
 })
 export class SignupPage {
+  public userId: String;
+  public fullName: String;
+  public email: String;
+  public mobileNumber: number;
+  public password: String;
+  public role: String;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -24,4 +30,9 @@ export class SignupPage {
   login() {
     this.navCtrl.push(SignupPage);
   }
+
+  onClickSignUp() {
+    
+  }
+
 }

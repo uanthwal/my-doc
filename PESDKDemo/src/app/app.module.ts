@@ -25,6 +25,8 @@ import { DoctorSearchPage } from '../pages/doctor-search/doctor-search';
 import { SearchInputPage } from '../pages/search-input/search-input';
 import { TimingsPage } from '../pages/timings/timings';
 import { ChatBotPage } from '../pages/chat-bot/chat-bot';
+import { AppService } from './app.services';
+import { HttpClientService } from '../shared/http/base.http.service';
 
 @NgModule({
   declarations: [
@@ -74,6 +76,8 @@ import { ChatBotPage } from '../pages/chat-bot/chat-bot';
     SignupPage
   ],
   providers: [
+    HttpClientService,
+    AppService,
     EmailComposer,
     StatusBar,
     SplashScreen,
