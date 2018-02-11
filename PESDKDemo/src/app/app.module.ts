@@ -27,6 +27,9 @@ import { TimingsPage } from '../pages/timings/timings';
 import { ChatBotPage } from '../pages/chat-bot/chat-bot';
 import { AppService } from './app.services';
 import { HttpClientService } from '../shared/http/base.http.service';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
+import { Broadcaster } from '../service/broadcaster';
 
 @NgModule({
   declarations: [
@@ -52,7 +55,9 @@ import { HttpClientService } from '../shared/http/base.http.service';
   imports: [
     IonicModule.forRoot(MyApp),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -76,6 +81,7 @@ import { HttpClientService } from '../shared/http/base.http.service';
     SignupPage
   ],
   providers: [
+    Broadcaster,
     HttpClientService,
     AppService,
     EmailComposer,

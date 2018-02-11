@@ -4,6 +4,7 @@ import { SignupPage } from '../signup/signup';
 import { HomePage } from '../home/home';
 import { HttpClientService } from '../../shared/http/base.http.service';
 import { AppService } from "../../app/app.services";
+
 /**
  * Generated class for the LoginPage page.
  *
@@ -35,10 +36,10 @@ export class LoginPage {
       "userId":this.userId,
       "password": this.password
     };
-    this.appService.login(data)
-    .subscribe((resp) => {
-      // Response from Login Server
-    });
+    // this.appService.login(data)
+    // .subscribe((resp) => {
+    //   // Response from Login Server
+    // });
     this.navCtrl.push(HomePage);
   }
 }
