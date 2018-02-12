@@ -1,11 +1,18 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 
-import { NavController } from 'ionic-angular';
-import { EmailComposer } from '@ionic-native/email-composer';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { File } from '@ionic-native/file';
+import { Transfer } from '@ionic-native/transfer';
+import { FilePath } from '@ionic-native/file-path';
+import { Camera, CameraOptions } from '@ionic-native/camera';
+import { FileChooser } from '@ionic-native/file-chooser';
+import { NavController, NavParams } from 'ionic-angular';
+import { ActionSheetController } from 'ionic-angular/components/action-sheet/action-sheet-controller';
+import { ToastController } from 'ionic-angular/components/toast/toast-controller';
+import { Platform } from 'ionic-angular/platform/platform';
+import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
+import { Diagnostic, CameraPreviewRect, CameraPreview } from 'ionic-native';
 
-declare var PESDK;
-
+declare let cordova: any;
 /**
  * Generated class for the ScanUploadPage page.
  *
@@ -17,82 +24,73 @@ declare var PESDK;
   selector: 'page-scan-upload',
   templateUrl: 'scan-upload.html',
 })
+
 export class ScanUploadPage {
 
-  public attachments = [];
-  public form: FormGroup;
-  public to: string;
+  public patientList: Array<any> = [];
+  public attachments: Array<any> = [];
+  public base64Image: string;
+  public imageCount=0;
+  public attachmentCount=0;
+  lastImage: string = null;
 
-  constructor(
-    public navCtrl: NavController,
-    public emailComposer: EmailComposer,
-    public cd: ChangeDetectorRef,
-    public fb: FormBuilder) {
+  constructor(public navCtrl: NavController, 
+    public toastCtrl: ToastController) {
+this.checkPermissions();
+}
 
-    this.form = this.fb.group({
-      "to": ["", Validators.required]
-    });
+checkPermissions() {
+// More code goes here
+Diagnostic.isCameraAuthorized().then((authorized) => {
+  if(authorized)
+      this.initializePreview();
+  else {
+      Diagnostic.requestCameraAuthorization().then((status) => {
+          if(status == Diagnostic.permissionStatus.GRANTED)
+              this.initializePreview();
+          else {
+              // Permissions not granted
+              // Therefore, create and present toast
+              this.toastCtrl.create(
+                  {
+                      message: "Cannot access camera", 
+                      position: "bottom",
+                      duration: 5000
+                  }
+              ).present();
+          }
+      });
+  }
+});
+}
+initializePreview() {
+  // Make the width and height of the preview equal 
+  // to the width and height of the app's window
+  let previewRect: CameraPreviewRect = {
+    x: 0,
+    y: 0,
+    width: window.innerWidth,
+    height: window.innerHeight
+  };
 
-    // let filePaths = [
-    //   '//asdf/asdf/asdf/asdf/Shopping.jpg',
-    //   '//asdf/asdf/asdf/asdf/Hospital.png',
-    //   '//asdf/asdf/asdf/asdf/Cafe.xls',
-    //   '//asdf/asdf/asdf/asdf/Dog Park.jpg'
-    // ];
+  // More code goes here
+  CameraPreview.startCamera(
+    previewRect, 
+    'rear', 
+    false, 
+    false, 
+    true,
+    1
+);
+}
+takePicture() {
+  CameraPreview.takePicture({maxWidth: 320, maxHeight: 320});
+}
 
-    // this.attachments = filePaths.map(filePath => {
-    //   return { name: filePath.split(/\//).pop(), url: filePath, isEditable: false };
-    // });
+  init() {
+    // Make a REST call here to get the patient list
+    for(let i=0; i < 5; i++)
+    this.patientList.push({id: i, name: "PATIENT-"+i});
   }
 
-  openScanner(event) {
-
-    PESDK.present(
-      result => {
-        this.attachments.push(
-          {name: result.url.split(/\//).pop(), url: result.url, isEditable: false }
-        );
-        this.cd.markForCheck();
-      },
-
-      error => alert('PESDK error: ' + error),
-      { sourceType: 1 }
-    );
-  }
-
-  addItem() {
-    let item = '//asdf/asdf/asdf/asdf/NewItem.txt';
-    this.attachments.push(
-      {name: item.split(/\//).pop(), url: item, isEditable: false }
-    );
-  }
-
-  sendEmail() {
-
-    console.log('email triggered');
-    let email = {
-      to: this.to,
-      attachments: this.attachments.map(item => item.url),
-      subject: 'Scan items',
-      body: 'Please find the items in the attachments',
-      isHtml: true
-    };
-
-    // Send a text message using default options
-    this.emailComposer.open(email);
-  }
-
-  edit( attachment ) {
-    attachment.isEditable = true;
-  }
-
-  delete( attachment ) {
-    const index = this.attachments.indexOf(attachment);
-    this.attachments.splice(index, 1);
-  }
-
-  update( attachment ) {
-    setTimeout(_ => attachment.isEditable = false, 0);
-    this.cd.markForCheck();
-  }
 }

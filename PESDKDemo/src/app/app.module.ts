@@ -33,6 +33,11 @@ import { Broadcaster } from '../service/broadcaster';
 import { LogoutPage } from '../pages/logout/logout';
 import { AboutPage } from '../pages/about/about';
 import { RateUsPage } from '../pages/rate-us/rate-us';
+import { Camera } from '@ionic-native/camera';
+import { FileChooser } from '@ionic-native/file-chooser';
+import { File } from '@ionic-native/file';
+import { Transfer } from '@ionic-native/transfer';
+import { FilePath } from '@ionic-native/file-path';
 
 @NgModule({
   declarations: [
@@ -96,7 +101,12 @@ import { RateUsPage } from '../pages/rate-us/rate-us';
     EmailComposer,
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Camera,
+    FileChooser,
+    File,
+    Transfer,
+    FilePath,
   ]
 })
 export class AppModule {}

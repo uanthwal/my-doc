@@ -9,7 +9,8 @@ export const URL_CONFIG = {
     REGISTER_URL:'',
     LOGIN_URL:'',
     ADD_PATIENT_URL:'',
-    SEARCH_URL:''
+    SEARCH_URL:'',
+    RATING_URL: 'https://play.google.com/store/apps/details?id=be.linkiu.easydoc&hl=en'
 };
 
 export const APP_CONFIG = {
