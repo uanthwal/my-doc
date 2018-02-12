@@ -16,34 +16,35 @@
 <ion-content padding>
   <ion-list signup>
     <div class="patient-main">
-      <ion-icon name="people"></ion-icon>
+      <img src="../assets/icon/patient.svg"/>
     </div>
-    <ion-item>
-      <ion-label floating>Full name</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label floating>Mobile</ion-label>
-      <ion-input type="number"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label floating>Email</ion-label>
-      <ion-input type="email"></ion-input>
-    </ion-item>
-
-    <ion-item role>
-      <ion-label>Deparment</ion-label>
-      <ion-select [(ngModel)]="speciality">
-        <ion-option *ngFor="let spec of specialities" [value]="spec">{{spec}}</ion-option>
-      </ion-select>
-    </ion-item>
-
-    <div class="add-doc-btn">
-      <button ion-button round color="light">Cancel</button>
-      <button ion-button round>Add Patient</button>
+    <div>
+        <ion-item>
+            <ion-label floating>Full name</ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item>
+      
+          <ion-item>
+            <ion-label floating>Mobile</ion-label>
+            <ion-input type="number"></ion-input>
+          </ion-item>
+      
+          <ion-item>
+            <ion-label floating>Email</ion-label>
+            <ion-input type="email"></ion-input>
+          </ion-item>
+      
+          <ion-item role>
+            <ion-label>Deparment</ion-label>
+            <ion-select [(ngModel)]="speciality">
+              <ion-option *ngFor="let spec of specialities" [value]="spec">{{spec}}</ion-option>
+            </ion-select>
+          </ion-item>
+      
+          <div class="add-doc-btn">
+            <button ion-button round color="light" (click)="onClickCancel()">Cancel</button>
+            <button ion-button round (click)="onClickAddPatient()">Add Patient</button>
+          </div>
     </div>
-
   </ion-list>
 </ion-content>

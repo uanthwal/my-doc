@@ -41,5 +41,6 @@ export class LoginPage {
     //   // Response from Login Server
     // });
     this.navCtrl.push(HomePage);
+    // this.nav.setRoot(page.component);
   }
 }

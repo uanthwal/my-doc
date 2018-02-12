@@ -1,7 +1,9 @@
 <ion-header>
-  <ion-navbar>
+   
+  <ion-navbar hideBackButton="true">
     <ion-title>
-      My Doc
+        <ion-icon name="menu" menuToggle style="display: inline-block !important;color: #387ef5;vertical-align: middle;font-size:30px;">
+        </ion-icon><span style="padding-left:10px;display: inline-block;vertical-align: middle;">Home</span>
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -10,7 +12,7 @@
   <div class="categories">
     <div class="box" *ngFor="let category of categories">
       <div class="box__p" (click)="detailsPage(category.page)">
-        <ion-icon [name]="category.icon" item-start></ion-icon>
+          <img src="../assets/icon/{{category.icon}}"/>
         <div class="box--label">{{category.label}}</div>
       </div>
     </div>

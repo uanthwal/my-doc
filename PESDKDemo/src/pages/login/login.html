@@ -6,16 +6,15 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>Login</ion-title>
+    <ion-title>myDoc</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
   <ion-list login>
     <div class="login-main">
-      <!-- Product logo -->
+      <img src="../assets/icon/app_logo.png" alt="app_logo"/>
     </div>
     <ion-item>
       <ion-label floating>Mobile/Email</ion-label>
@@ -30,14 +29,13 @@
     <div class="login-center">
       <button ion-button round block (click)="doLogin()">Login</button>
     </div>
-
-    <ion-item register>
-      <div class="signup">
-        <span>Dont have an account? </span>
-        <button ion-button clear (click)="signUp()">Sign Up</button>
-      </div>
-    </ion-item>
-
+    <div class="already-acc-container">
+        <ion-item register>
+            <div class="signup">
+              <span>Dont have an account? </span>
+              <button ion-button clear (click)="signUp()">Sign Up</button>
+            </div>
+          </ion-item>
+    </div>
   </ion-list>
-
 </ion-content>

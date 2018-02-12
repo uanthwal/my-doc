@@ -30,6 +30,7 @@ import { HttpClientService } from '../shared/http/base.http.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { Broadcaster } from '../service/broadcaster';
+import { LogoutPage } from '../pages/logout/logout';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { Broadcaster } from '../service/broadcaster';
     ChatBotPage,
     ListPage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    LogoutPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -78,7 +80,8 @@ import { Broadcaster } from '../service/broadcaster';
     HistoryPage,
     ListPage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    LogoutPage
   ],
   providers: [
     Broadcaster,

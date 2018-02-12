@@ -37,4 +37,12 @@ export class AddPatientPage {
     console.log('ionViewDidLoad AddPatientPage');
   }
 
+  private onClickCancel() {
+    this.navCtrl.pop();
+  }
+
+  private onClickAddPatient() {
+    // Make a REST call here to add the patient to the database
+  }
+
 }
