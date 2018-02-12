@@ -31,6 +31,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { Broadcaster } from '../service/broadcaster';
 import { LogoutPage } from '../pages/logout/logout';
+import { AboutPage } from '../pages/about/about';
+import { RateUsPage } from '../pages/rate-us/rate-us';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import { LogoutPage } from '../pages/logout/logout';
     ListPage,
     LoginPage,
     SignupPage,
-    LogoutPage
+    LogoutPage,
+    AboutPage,
+    RateUsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -81,7 +85,9 @@ import { LogoutPage } from '../pages/logout/logout';
     ListPage,
     LoginPage,
     SignupPage,
-    LogoutPage
+    LogoutPage,
+    AboutPage,
+    RateUsPage
   ],
   providers: [
     Broadcaster,

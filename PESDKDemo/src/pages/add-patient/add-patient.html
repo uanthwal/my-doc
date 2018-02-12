@@ -21,23 +21,24 @@
     <div>
         <ion-item>
             <ion-label floating>Full name</ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-input type="text" [(ngModel)]="fullName"></ion-input>
           </ion-item>
       
           <ion-item>
             <ion-label floating>Mobile</ion-label>
-            <ion-input type="number"></ion-input>
+            <ion-input type="number" [(ngModel)]="mobileNumber"></ion-input>
           </ion-item>
-      
+
           <ion-item>
-            <ion-label floating>Email</ion-label>
-            <ion-input type="email"></ion-input>
+            <ion-label floating>Age</ion-label>
+            <ion-input type="number" [(ngModel)]="age"></ion-input>
           </ion-item>
-      
-          <ion-item role>
-            <ion-label>Deparment</ion-label>
-            <ion-select [(ngModel)]="speciality">
-              <ion-option *ngFor="let spec of specialities" [value]="spec">{{spec}}</ion-option>
+
+          <ion-item gender class="gender">
+            <ion-label>Gender</ion-label>
+            <ion-select [(ngModel)]="gender">
+              <ion-option value="male">Male</ion-option>
+              <ion-option value="female">Female</ion-option>
             </ion-select>
           </ion-item>
       
