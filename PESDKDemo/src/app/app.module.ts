@@ -30,6 +30,8 @@ import { HttpClientService } from '../shared/http/base.http.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { Broadcaster } from '../service/broadcaster';
+import { DoctorSearchFilterPage } from '../pages/doctor-search-filter/doctor-search-filter';
+import { DoctorSearchSortPage } from '../pages/doctor-search-sort/doctor-search-sort';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { Broadcaster } from '../service/broadcaster';
     ChatBotPage,
     ListPage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    DoctorSearchFilterPage,
+    DoctorSearchSortPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -78,7 +82,9 @@ import { Broadcaster } from '../service/broadcaster';
     HistoryPage,
     ListPage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    DoctorSearchFilterPage,
+    DoctorSearchSortPage
   ],
   providers: [
     Broadcaster,
