@@ -64,7 +64,15 @@ $named-colors: 'AliceBlue', 'AntiqueWhite', 'Aqua', 'Aquamarine', 'Azure', 'Beig
     background-color: unquote(nth($named-colors, $i));
   }
 }
-
+.side-menu-icon {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+}
+ion-label {
+    display: flex;
+    align-items: center;
+  }
 .avtr {
     position: relative;
     top: 1px;

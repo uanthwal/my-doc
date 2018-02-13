@@ -1,11 +1,12 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
+import { Component } from '@angular/core';
 
-import { NavController } from 'ionic-angular';
-import { EmailComposer } from '@ionic-native/email-composer';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-
-declare var PESDK;
-
+import { NavController, NavParams } from 'ionic-angular';
+import { ToastController } from 'ionic-angular/components/toast/toast-controller';
+import { Diagnostic, CameraPreviewRect, CameraPreview } from 'ionic-native';
+import { URL_CONFIG } from '../../app/app.config';
+import {Camera, CameraOptions} from '@ionic-native/camera';
+import { AlertController } from 'ionic-angular/components/alert/alert-controller';
+declare let cordova: any;
 /**
  * Generated class for the ScanUploadPage page.
  *
@@ -17,82 +18,70 @@ declare var PESDK;
   selector: 'page-scan-upload',
   templateUrl: 'scan-upload.html',
 })
+
 export class ScanUploadPage {
+  public photos : any;
+  public base64Image : string;
+  public message;
 
-  public attachments = [];
-  public form: FormGroup;
-  public to: string;
+  public iconPath = URL_CONFIG.ICON_ASSETS_PATH;
+  public patientList: Array<any> = [];
+  public attachments: Array<any> = [];
 
-  constructor(
-    public navCtrl: NavController,
-    public emailComposer: EmailComposer,
-    public cd: ChangeDetectorRef,
-    public fb: FormBuilder) {
+  public imageCount=0;
+  public attachmentCount=0;
+  lastImage: string = null;
 
-    this.form = this.fb.group({
-      "to": ["", Validators.required]
-    });
+  constructor(public navCtrl: NavController, private camera : Camera, private alertCtrl : AlertController) {
+//this.checkPermissions();
+}
+ngOnInit() {
+  this.photos = [];
+  for(let i=0; i < 5; i++)
+    this.patientList.push({id: i, name: "PATIENT-"+i});
+}
 
-    // let filePaths = [
-    //   '//asdf/asdf/asdf/asdf/Shopping.jpg',
-    //   '//asdf/asdf/asdf/asdf/Hospital.png',
-    //   '//asdf/asdf/asdf/asdf/Cafe.xls',
-    //   '//asdf/asdf/asdf/asdf/Dog Park.jpg'
-    // ];
+deletePhoto(index) {
+ console.log("Delete Photo");
+ this.message = "take photo called";
+ let confirm = this.alertCtrl.create({
+  title: 'Sure you want to delete this photo? There is NO undo!',
+  message: '',
+  buttons: [
+    {
+      text: 'No',
+      handler: () => {
+        console.log('Disagree clicked');
+      }
+    }, {
+      text: 'Yes',
+      handler: () => {
+        console.log('Agree clicked');
+        this.photos.splice(index, 1);
+      }
+    }
+  ]
+});
+confirm.present();
+}
 
-    // this.attachments = filePaths.map(filePath => {
-    //   return { name: filePath.split(/\//).pop(), url: filePath, isEditable: false };
-    // });
-  }
+takePhoto(){
+console.log("Take Photo");
+this.message = "take photo called";
+const options : CameraOptions = {
+  quality: 50, // picture quality
+  destinationType: this.camera.DestinationType.DATA_URL,
+  encodingType: this.camera.EncodingType.JPEG,
+  mediaType: this.camera.MediaType.PICTURE
+}
+this.camera.getPicture(options) .then((imageData) => {
+    this.base64Image = "data:image/jpeg;base64," + imageData;
+    this.photos.push(this.base64Image);
+    this.photos.reverse();
+  }, (err) => {
+    console.log(err);
+    this.message = "Error:"+ err;
+  });
+}
 
-  openScanner(event) {
-
-    PESDK.present(
-      result => {
-        this.attachments.push(
-          {name: result.url.split(/\//).pop(), url: result.url, isEditable: false }
-        );
-        this.cd.markForCheck();
-      },
-
-      error => alert('PESDK error: ' + error),
-      { sourceType: 1 }
-    );
-  }
-
-  addItem() {
-    let item = '//asdf/asdf/asdf/asdf/NewItem.txt';
-    this.attachments.push(
-      {name: item.split(/\//).pop(), url: item, isEditable: false }
-    );
-  }
-
-  sendEmail() {
-
-    console.log('email triggered');
-    let email = {
-      to: this.to,
-      attachments: this.attachments.map(item => item.url),
-      subject: 'Scan items',
-      body: 'Please find the items in the attachments',
-      isHtml: true
-    };
-
-    // Send a text message using default options
-    this.emailComposer.open(email);
-  }
-
-  edit( attachment ) {
-    attachment.isEditable = true;
-  }
-
-  delete( attachment ) {
-    const index = this.attachments.indexOf(attachment);
-    this.attachments.splice(index, 1);
-  }
-
-  update( attachment ) {
-    setTimeout(_ => attachment.isEditable = false, 0);
-    this.cd.markForCheck();
-  }
 }

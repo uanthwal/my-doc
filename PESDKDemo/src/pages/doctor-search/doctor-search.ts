@@ -40,21 +40,18 @@ export class DoctorSearchPage {
   }
 
   openModel(modelName: string) {
-    debugger;
     let modal;
-    modal = this.modalCtrl.create(DoctorSearchSortPage);
+ 
+    switch(modelName) {
+      case 'filter':
+      modal = this.modalCtrl.create(DoctorSearchFilterPage);
+      modal.present();
+      break;
+      case 'sort':
+      modal = this.modalCtrl.create(DoctorSearchSortPage);
       modal.present(); 
-    // switch(modelName) {
-    //   case 'filter':
-    //   modal = this.modalCtrl.create(DoctorSearchFilterPage);
-    //   modal.present();
-    //   break;
-    //   case 'sort':
-    //   modal = this.modalCtrl.create(DoctorSearchSortPage);
-    //   modal.present(); 
-    //   break;
-    //   default:
-
-    // }
+      break;
+      default:
+    }
   }
 }

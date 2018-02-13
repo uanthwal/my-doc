@@ -32,6 +32,14 @@ import { HttpModule } from '@angular/http';
 import { Broadcaster } from '../service/broadcaster';
 import { DoctorSearchFilterPage } from '../pages/doctor-search-filter/doctor-search-filter';
 import { DoctorSearchSortPage } from '../pages/doctor-search-sort/doctor-search-sort';
+import { LogoutPage } from '../pages/logout/logout';
+import { AboutPage } from '../pages/about/about';
+import { RateUsPage } from '../pages/rate-us/rate-us';
+import { Camera } from '@ionic-native/camera';
+import { FileChooser } from '@ionic-native/file-chooser';
+import { File } from '@ionic-native/file';
+import { Transfer } from '@ionic-native/transfer';
+import { FilePath } from '@ionic-native/file-path';
 
 @NgModule({
   declarations: [
@@ -53,6 +61,9 @@ import { DoctorSearchSortPage } from '../pages/doctor-search-sort/doctor-search-
     ListPage,
     LoginPage,
     SignupPage,
+    LogoutPage,
+    AboutPage,
+    RateUsPage,
     DoctorSearchFilterPage,
     DoctorSearchSortPage
   ],
@@ -84,7 +95,10 @@ import { DoctorSearchSortPage } from '../pages/doctor-search-sort/doctor-search-
     LoginPage,
     SignupPage,
     DoctorSearchFilterPage,
-    DoctorSearchSortPage
+    DoctorSearchSortPage,
+    LogoutPage,
+    AboutPage,
+    RateUsPage
   ],
   providers: [
     Broadcaster,
@@ -93,7 +107,12 @@ import { DoctorSearchSortPage } from '../pages/doctor-search-sort/doctor-search-
     EmailComposer,
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Camera,
+    FileChooser,
+    File,
+    Transfer,
+    FilePath,
   ]
 })
 export class AppModule {}

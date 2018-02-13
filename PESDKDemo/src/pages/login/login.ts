@@ -4,6 +4,7 @@ import { SignupPage } from '../signup/signup';
 import { HomePage } from '../home/home';
 import { HttpClientService } from '../../shared/http/base.http.service';
 import { AppService } from "../../app/app.services";
+import { URL_CONFIG } from '../../app/app.config';
 
 /**
  * Generated class for the LoginPage page.
@@ -17,6 +18,7 @@ import { AppService } from "../../app/app.services";
   templateUrl: 'login.html',
 })
 export class LoginPage {
+  public iconPath = URL_CONFIG.ICON_ASSETS_PATH;
   userId: String;
   password: String;
   constructor(public appService:AppService, public navCtrl: NavController, public navParams: NavParams, public httpClient: HttpClientService) {
@@ -41,5 +43,6 @@ export class LoginPage {
     //   // Response from Login Server
     // });
     this.navCtrl.push(HomePage);
+    // this.nav.setRoot(page.component);
   }
 }

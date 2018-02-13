@@ -17,38 +17,36 @@
   <div class="centered">
     <button ion-button round outline (click)="openScanner($event)">Open Scanner</button>
   </div>
-
-  <ion-list class="attachments">
-    <ng-container *ngFor="let attach of attachments">
-
-      <ion-item *ngIf="!attach.isEditable">
-        <label [for]="attach.name">{{attach.name}}</label>
-        <span class="spacer"></span>
-        <ion-icon name="create" (click)="edit(attach)"></ion-icon>
-        <ion-icon name="close" (click)="delete(attach)"></ion-icon>
+  <ion-item patient>
+      <ion-label>Patient</ion-label>
+      <ion-select [(ngModel)]="patient">
+        <ion-option *ngFor="let patient of patientList" value="{{patient.id}}">{{patient.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <img src="{{iconPath}}camera.png" (click)="takePhoto()" class="action-icon"/>
+ 
+        Capture Image
+        <ion-badge item-end>0</ion-badge>
       </ion-item>
-
-      <ion-item class="ion-editable" *ngIf="attach.isEditable">
-        <ion-input type="text" [(ngModel)]="attach.name"></ion-input>
-      </ion-item>
-      <div class="icon-right" *ngIf="attach.isEditable">
-        <ion-icon name="checkmark" class="md-update" (click)="update(attach)"></ion-icon>
-      </div>
-    </ng-container>
-  </ion-list>
-
-  <form [formGroup]="form" (ngSubmit)="sendEmail()">
-
-    <ion-list>
-
-      <ion-item margin-bottom>
-        <!-- <ion-label for="to">To:</ion-label> -->
-        <ion-input type="email" name="to" [(ngModel)]="to" formControlName="to" placeholder="To..."></ion-input>
-      </ion-item>
-
-      <div class="centered">
-        <button ion-button round text-center [disabled]="!form.valid">Send email</button>
-      </div>
-    </ion-list>
-  </form>
+      <ion-item>
+          <img class="action-icon" src="{{iconPath}}attachments.png" (click)="onClickAttachment()"/>
+          
+          Upload Document
+          <ion-badge item-end>0</ion-badge>
+        </ion-item>
+        <div>
+            <ion-item *ngFor="let a of attachments; let i = index">
+                <ion-badge item-start>{{i}}</ion-badge>
+                {{a.name}}
+                <i class="fa fa-trash" (click)="removeAttachment(a)"></i>
+              </ion-item>
+        </div>
+        <ion-col col-6 *ngFor="let photo of photos; let id = index">
+            <ion-card class="block">
+              <ion-icon name="trash" class="deleteIcon" (click)="deletePhoto(id)"></ion-icon>
+              <img [src]="photo" *ngIf="photo" />
+            </ion-card>
+    </ion-col>
+    {{message}}
 </ion-content>

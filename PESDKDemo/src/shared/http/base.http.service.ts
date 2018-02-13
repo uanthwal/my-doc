@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers } from '@angular/http';
 import { URL_CONFIG } from '../../app/app.config';
 
-import { Observable } from 'rxjs/Observable';
-import { Broadcaster } from "../../service/broadcaster";
 
 import 'rxjs/add/operator/map';
 import 'rxjs/Rx';
@@ -12,11 +10,8 @@ import 'rxjs/Rx';
 export class HttpClientService {
 
     constructor(
-        private http: Http, 
-        private broadcaster:Broadcaster) {
+        private http: Http) {
     }
-
-    private LOADER_INTEREVAL = 1000;
 
     get( url:string ) {
         return this.http.get(URL_CONFIG.BASE_URL + url).do(_ => {

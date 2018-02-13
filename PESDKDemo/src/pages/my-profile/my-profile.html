@@ -6,13 +6,54 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>MyProfile</ion-title>
-  </ion-navbar>
-
-</ion-header>
+    <ion-navbar hideBackButton="false">
+      <ion-title>My Profile</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
 
 
 <ion-content padding>
-
+    <div class="pro-pic-main">
+        <img src="{{imgPath}}thumbnail-puppy-3.jpg" class="pro-pic"/>
+      </div>
+      <div>
+          <ion-list signup>
+              <div class="signup-main">
+                <!-- Product image area -->
+              </div>
+              <ion-item>
+                <ion-label floating>User ID</ion-label>
+                <ion-input type="text" [(ngModel)]="userId"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label floating>Full name</ion-label>
+                <ion-input type="text" [(ngModel)]="fullName"></ion-input>
+              </ion-item>
+          
+              <ion-item>
+                <ion-label floating>Mobile</ion-label>
+                <ion-input type="number" [(ngModel)]="mobileNumber"></ion-input>
+              </ion-item>
+          
+              <ion-item>
+                <ion-label floating>Email</ion-label>
+                <ion-input type="email" [(ngModel)]="email"></ion-input>
+              </ion-item>
+          
+              <ion-item role class="popup">
+                <ion-label>Role</ion-label>
+                <ion-select [(ngModel)]="role">
+                  <ion-option value="doctor">Doctor</ion-option>
+                  <ion-option value="healthWorker">Health Worker</ion-option>
+                </ion-select>
+              </ion-item>
+          
+              <div class="action-btn">
+                  <button ion-button round color="light" (click)="closeProfile()">Cancel</button>
+                  <button ion-button round (click)="updateProfile()">Save</button>
+                </div>
+          
+            </ion-list>
+      </div>
 </ion-content>

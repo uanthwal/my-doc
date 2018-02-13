@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { URL_CONFIG } from '../../app/app.config';
 
 /**
  * Generated class for the AddPatientPage page.
@@ -13,7 +14,7 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'add-patient.html',
 })
 export class AddPatientPage {
-  
+  public iconPath = URL_CONFIG.ICON_ASSETS_PATH;
   public event = {};
   public specialities = [
     "Surgery", "Pediatrics", "Cardiology", "Radiology", 
@@ -35,6 +36,14 @@ export class AddPatientPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddPatientPage');
+  }
+
+  private onClickCancel() {
+    this.navCtrl.pop();
+  }
+
+  private onClickAddPatient() {
+    // Make a REST call here to add the patient to the database
   }
 
 }

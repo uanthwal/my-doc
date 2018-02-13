@@ -1,36 +1,33 @@
 import { LoginPage } from './../pages/login/login';
-import { TimingsPage } from './../pages/timings/timings';
-import { MyVisitsPage } from './../pages/my-visits/my-visits';
-
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
-import { MyReportsPage } from '../pages/my-reports/my-reports';
 import { MyProfilePage } from '../pages/my-profile/my-profile';
-import { SignupPage } from '../pages/signup/signup';
+import { LogoutPage } from '../pages/logout/logout';
+import { AboutPage } from '../pages/about/about';
+import { RateUsPage } from '../pages/rate-us/rate-us';
+import { URL_CONFIG } from './app.config';
+
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-
+  public iconPath = URL_CONFIG.ICON_ASSETS_PATH;
   rootPage: any = LoginPage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, icon: string}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'My Visits', component: MyVisitsPage },
-      { title: 'My Reports', component: MyReportsPage },
-      { title: 'My Profile', component: MyProfilePage },
-      { title: 'Timings', component: TimingsPage }
+      { title: 'My Profile', component: MyProfilePage, icon:'profile.svg' },
+      { title: 'Rate us', component: RateUsPage, icon:'rate-us.svg' },
+      { title: 'About', component: AboutPage, icon:'information.svg' },
+      { title: 'Logout', component: LogoutPage, icon:'logout.svg' }
     ];
 
   }
@@ -47,6 +44,7 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    // this.nav.setRoot(page.component);
+    this.nav.push(page.component);
   }
 }
