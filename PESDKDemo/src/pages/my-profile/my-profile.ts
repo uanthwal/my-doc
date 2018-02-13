@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
 import { AlertController } from 'ionic-angular/components/alert/alert-controller';
+import { URL_CONFIG } from '../../app/app.config';
 
 /**
  * Generated class for the MyProfilePage page.
@@ -21,6 +22,7 @@ export class MyProfilePage {
   public mobileNumber: number;
   public password: String;
   public role: String;
+  public imgPath = URL_CONFIG.IMG_ASSETS_PATH;
   constructor(public alertCtrl: AlertController, public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
   }
 

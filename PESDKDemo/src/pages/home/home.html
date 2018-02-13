@@ -12,7 +12,7 @@
   <div class="categories">
     <div class="box" *ngFor="let category of categories">
       <div class="box__p" (click)="detailsPage(category.page)">
-          <img src="../assets/icon/{{category.icon}}"/>
+          <img src="{{iconPath}}{{category.icon}}"/>
         <div class="box--label">{{category.label}}</div>
       </div>
     </div>

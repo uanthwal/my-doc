@@ -7,13 +7,14 @@ import { MyProfilePage } from '../pages/my-profile/my-profile';
 import { LogoutPage } from '../pages/logout/logout';
 import { AboutPage } from '../pages/about/about';
 import { RateUsPage } from '../pages/rate-us/rate-us';
+import { URL_CONFIG } from './app.config';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-
+  public iconPath = URL_CONFIG.ICON_ASSETS_PATH;
   rootPage: any = LoginPage;
 
   pages: Array<{title: string, component: any, icon: string}>;

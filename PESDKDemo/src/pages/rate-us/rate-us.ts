@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { SignupPage } from '../signup/signup';
-import { HomePage } from '../home/home';
 import { HttpClientService } from '../../shared/http/base.http.service';
 import { AppService } from "../../app/app.services";
-import { LoginPage } from '../login/login';
 import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
+import { URL_CONFIG } from '../../app/app.config';
 
 /**
  * Generated class for the LoginPage page.
@@ -19,6 +17,7 @@ import { LoadingController } from 'ionic-angular/components/loading/loading-cont
   templateUrl: 'rate-us.html',
 })
 export class RateUsPage {
+  public iconPath = URL_CONFIG.ICON_ASSETS_PATH;
   userId: String;
   password: String;
   constructor(public loadingCtrl: LoadingController, public appService:AppService, public navCtrl: NavController, public navParams: NavParams, public httpClient: HttpClientService) {

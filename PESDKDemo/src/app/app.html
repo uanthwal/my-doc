@@ -9,7 +9,7 @@
     <ion-list>
       
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-          <img src="../assets/icon/{{p.icon}}" class="side-menu-icon"/> {{p.title}}
+          <img src="{{iconPath}}{{p.icon}}" class="side-menu-icon"/> {{p.title}}
       </button>
     </ion-list>
   </ion-content>

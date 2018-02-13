@@ -24,13 +24,13 @@
       </ion-select>
     </ion-item>
     <ion-item>
-      <img src="../assets/icon/camera.png" (click)="takePicture()" class="action-icon"/>
+      <img src="{{iconPath}}camera.png" (click)="takePhoto()" class="action-icon"/>
  
         Capture Image
         <ion-badge item-end>0</ion-badge>
       </ion-item>
       <ion-item>
-          <img class="action-icon" src="../assets/icon/attachments.png" (click)="onClickAttachment()"/>
+          <img class="action-icon" src="{{iconPath}}attachments.png" (click)="onClickAttachment()"/>
           
           Upload Document
           <ion-badge item-end>0</ion-badge>
@@ -42,4 +42,11 @@
                 <i class="fa fa-trash" (click)="removeAttachment(a)"></i>
               </ion-item>
         </div>
+        <ion-col col-6 *ngFor="let photo of photos; let id = index">
+            <ion-card class="block">
+              <ion-icon name="trash" class="deleteIcon" (click)="deletePhoto(id)"></ion-icon>
+              <img [src]="photo" *ngIf="photo" />
+            </ion-card>
+    </ion-col>
+    {{message}}
 </ion-content>

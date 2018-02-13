@@ -2,8 +2,7 @@ import { DoctorSearchPage } from './../doctor-search/doctor-search';
 import { NotificationsPage } from './../notifications/notifications';
 import { AddDoctorPage } from './../add-doctor/add-doctor';
 import { DoctorConnectPage } from './../doctor-connect/doctor-connect';
-import { SearchInputPage } from './../search-input/search-input';
-import { Component, ChangeDetectorRef } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
 import { ChatBotPage } from '../chat-bot/chat-bot';
@@ -11,13 +10,14 @@ import { MyReportsPage } from '../my-reports/my-reports';
 import { AddPatientPage } from '../add-patient/add-patient';
 import { ScanUploadPage } from '../scan-upload/scan-upload';
 import { HistoryPage } from '../history/history';
+import { URL_CONFIG } from '../../app/app.config';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-
+  public iconPath = URL_CONFIG.ICON_ASSETS_PATH;
   public categories = [
     {icon: 'search.svg', label: 'Search Doctor', page: DoctorSearchPage},
     {icon: 'connect.svg', label: 'Doctor Connect', page: DoctorConnectPage},

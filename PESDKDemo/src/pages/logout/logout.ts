@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { SignupPage } from '../signup/signup';
-import { HomePage } from '../home/home';
 import { HttpClientService } from '../../shared/http/base.http.service';
 import { AppService } from "../../app/app.services";
-import { LoginPage } from '../login/login';
 import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
 
 /**
