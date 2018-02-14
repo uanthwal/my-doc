@@ -28,12 +28,14 @@
         <span [ngClass]="['avtr', doctor.icon]">RP</span>
       </ion-avatar>
       <h2>{{doctor.name}}</h2>
-      <h3>{{doctor.spec}} <span class="count">{{doctor.fee}}</span> </h3>
+      <h3>{{doctor.spec}}
+        <span class="count">{{doctor.fee}}</span>
+      </h3>
       <!-- <b>{{doctor.order_id}}</b>     -->
       <div class="item-note" item-right>
         <h3>{{doctor.date | date:"dd MMM"}}</h3>
         <!-- <ion-badge [attr.status]="doctor.status">{{doctor.status}}</ion-badge> -->
-        <p class="price-badge">&#8377; {{doctor.fee}}</p> 
+        <p class="price-badge">&#8377; {{doctor.fee}}</p>
       </div>
     </ion-item>
   </ion-list>

@@ -1,8 +1,7 @@
-
-import { Subject } from 'rxjs/Subject';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/filter';
-import 'rxjs/add/operator/map';
+import { Subject } from "rxjs/Subject";
+import { Observable } from "rxjs/Observable";
+import "rxjs/add/operator/filter";
+import "rxjs/add/operator/map";
 
 //http://blog.lacolaco.net/post/event-broadcasting-in-angular-2/
 
@@ -19,11 +18,12 @@ export class Broadcaster {
   }
 
   broadcast(key: any, data?: any) {
-    this._eventBus.next({key, data});
+    this._eventBus.next({ key, data });
   }
 
   on<T>(key: any): Observable<T> {
-    return this._eventBus.asObservable()
+    return this._eventBus
+      .asObservable()
       .filter(event => event.key === key)
       .map(event => <T>event.data);
   }
