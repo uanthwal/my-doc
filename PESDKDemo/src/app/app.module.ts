@@ -39,6 +39,8 @@ import { Transfer } from "@ionic-native/transfer";
 import { FilePath } from "@ionic-native/file-path";
 import { AttachmentPreviewContentPage } from "../pages/attachment-preview/attachment-preview";
 import { FileChooser } from '@ionic-native/file-chooser';
+import { DoctorSearchFilterPage } from '../pages/doctor-search-filter/doctor-search-filter';
+import { DoctorSearchSortPage } from '../pages/doctor-search-sort/doctor-search-sort';
 
 @NgModule({
   declarations: [
@@ -63,7 +65,9 @@ import { FileChooser } from '@ionic-native/file-chooser';
     LogoutPage,
     AboutPage,
     RateUsPage,
-    AttachmentPreviewContentPage
+    AttachmentPreviewContentPage,
+    DoctorSearchFilterPage,
+    DoctorSearchSortPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -92,6 +96,8 @@ import { FileChooser } from '@ionic-native/file-chooser';
     ListPage,
     LoginPage,
     SignupPage,
+    DoctorSearchFilterPage,
+    DoctorSearchSortPage,
     LogoutPage,
     AboutPage,
     RateUsPage,

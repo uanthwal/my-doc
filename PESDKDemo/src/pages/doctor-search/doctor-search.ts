@@ -1,5 +1,7 @@
-import { Component } from "@angular/core";
-import { NavController, NavParams } from "ionic-angular";
+import { Component } from '@angular/core';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
+import { DoctorSearchFilterPage } from '../doctor-search-filter/doctor-search-filter';
+import { DoctorSearchSortPage } from '../doctor-search-sort/doctor-search-sort';
 
 /**
  * Generated class for the DoctorSearchPage page.
@@ -16,7 +18,8 @@ export class DoctorSearchPage {
   public doctors = [];
   public filterText = "";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
+  }
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad DoctorSearchPage");
@@ -34,5 +37,21 @@ export class DoctorSearchPage {
 
   doRefresh() {
     console.log("Doing refresh");
+  }
+
+  openModel(modelName: string) {
+    let modal;
+ 
+    switch(modelName) {
+      case 'filter':
+      modal = this.modalCtrl.create(DoctorSearchFilterPage);
+      modal.present();
+      break;
+      case 'sort':
+      modal = this.modalCtrl.create(DoctorSearchSortPage);
+      modal.present(); 
+      break;
+      default:
+    }
   }
 }
