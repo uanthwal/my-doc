@@ -40,6 +40,10 @@ export class HomePage {
 
   constructor(public navCtrl: NavController) {}
 
+  ionViewDidLoad() {
+    // this.navCtrl.setRoot(HomePage);
+  }
+
   detailsPage(detailsPage) {
     this.navCtrl.push(detailsPage);
   }

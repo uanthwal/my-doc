@@ -3,6 +3,7 @@ import { NavController, NavParams } from "ionic-angular";
 import { HttpClientService } from "../../shared/http/base.http.service";
 import { AppService } from "../../app/app.services";
 import { LoadingController } from "ionic-angular/components/loading/loading-controller";
+import { LoginPage } from "../login/login";
 
 /**
  * Generated class for the LoginPage page.
@@ -49,6 +50,7 @@ export class LogoutPage {
 
     setTimeout(() => {
       loading.dismiss();
+      // this.navCtrl.setRoot(LoginPage);
       this.navCtrl.popToRoot();
       // this.navCtrl.setRoot(LoginPage);
     }, 5000);

@@ -23,8 +23,8 @@
   <ion-item (click)="takePhoto()">
     <img src="{{iconPath}}camera.png" class="action-icon" /> Capture Image
   </ion-item>
-  <ion-item (click)="onClickUploadDoc()">
-    <img class="action-icon" src="{{iconPath}}attachments.png" /> Upload Document
+  <ion-item (click)="presentActionSheet()">
+    <img class="action-icon" src="{{iconPath}}attachments.png" /> Choose Image
   </ion-item>
   <div *ngIf="attachments?.length > 0">
     <p class="attach-block">
@@ -35,6 +35,9 @@
       <ion-icon item-end name="eye" class="eyeIcon" (click)="viewAttachment(a)"></ion-icon>
       <ion-icon item-end name="trash" class="deleteIcon" (click)="deleteAttachment(i)"></ion-icon>
     </ion-item>
+  </div>
+  <div class="action-btn">
+    <button ion-button round (click)="upload()">UPLOAD FILES</button>
   </div>
   {{message}}
 </ion-content>
