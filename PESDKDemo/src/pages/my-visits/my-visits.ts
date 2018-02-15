@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { Component } from "@angular/core";
+import { NavController, NavParams } from "ionic-angular";
 
 /**
  * Generated class for the MyVisitsPage page.
@@ -9,16 +9,13 @@ import { NavController, NavParams } from 'ionic-angular';
  */
 
 @Component({
-  selector: 'page-my-visits',
-  templateUrl: 'my-visits.html',
+  selector: "page-my-visits",
+  templateUrl: "my-visits.html"
 })
 export class MyVisitsPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MyVisitsPage');
+    console.log("ionViewDidLoad MyVisitsPage");
   }
-
 }

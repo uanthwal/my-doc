@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { Component } from "@angular/core";
+import { NavController, NavParams } from "ionic-angular";
 
 /**
  * Generated class for the SignupPage page.
@@ -9,8 +9,8 @@ import { NavController, NavParams } from 'ionic-angular';
  */
 
 @Component({
-  selector: 'page-signup',
-  templateUrl: 'signup.html',
+  selector: "page-signup",
+  templateUrl: "signup.html"
 })
 export class SignupPage {
   public userId: String;
@@ -20,19 +20,15 @@ export class SignupPage {
   public password: String;
   public role: String;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SignupPage');
+    console.log("ionViewDidLoad SignupPage");
   }
 
   login() {
     this.navCtrl.push(SignupPage);
   }
 
-  onClickSignUp() {
-    
-  }
-
+  onClickSignUp() {}
 }

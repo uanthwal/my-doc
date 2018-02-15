@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { Component } from "@angular/core";
+import { NavController, NavParams } from "ionic-angular";
 
 /**
  * Generated class for the ChatBotPage page.
@@ -9,16 +9,13 @@ import { NavController, NavParams } from 'ionic-angular';
  */
 
 @Component({
-  selector: 'page-chat-bot',
-  templateUrl: 'chat-bot.html',
+  selector: "page-chat-bot",
+  templateUrl: "chat-bot.html"
 })
 export class ChatBotPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ChatBotPage');
+    console.log("ionViewDidLoad ChatBotPage");
   }
-
 }

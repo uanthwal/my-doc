@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-import { SignupPage } from '../signup/signup';
-import { HomePage } from '../home/home';
-import { HttpClientService } from '../../shared/http/base.http.service';
+import { Component } from "@angular/core";
+import { NavController, NavParams } from "ionic-angular";
+import { SignupPage } from "../signup/signup";
+import { HomePage } from "../home/home";
+import { HttpClientService } from "../../shared/http/base.http.service";
 import { AppService } from "../../app/app.services";
-import { URL_CONFIG } from '../../app/app.config';
+import { URL_CONFIG } from "../../app/app.config";
 
 /**
  * Generated class for the LoginPage page.
@@ -14,19 +14,22 @@ import { URL_CONFIG } from '../../app/app.config';
  */
 
 @Component({
-  selector: 'page-login',
-  templateUrl: 'login.html',
+  selector: "page-login",
+  templateUrl: "login.html"
 })
 export class LoginPage {
   public iconPath = URL_CONFIG.ICON_ASSETS_PATH;
   userId: String;
   password: String;
-  constructor(public appService:AppService, public navCtrl: NavController, public navParams: NavParams, public httpClient: HttpClientService) {
-    
-  }
+  constructor(
+    public appService: AppService,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public httpClient: HttpClientService
+  ) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+    console.log("ionViewDidLoad LoginPage");
   }
 
   signUp() {
@@ -35,8 +38,8 @@ export class LoginPage {
 
   doLogin() {
     let data = {
-      "userId":this.userId,
-      "password": this.password
+      userId: this.userId,
+      password: this.password
     };
     // this.appService.login(data)
     // .subscribe((resp) => {

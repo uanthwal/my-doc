@@ -1,0 +1,9 @@
+<ion-navbar class="modal-wrapper" *navbar>
+  <ion-title>Sample Modal</ion-title>
+</ion-navbar>
+<ion-content padding class="sample-modal-page">
+  <img class="preview-image" src="{{attachmentData}}" />
+  <div class="action-btn">
+    <button ion-button round (click)="dismiss()">Close</button>
+  </div>
+</ion-content>

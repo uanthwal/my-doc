@@ -1,12 +1,12 @@
 page-scan-upload {
-  background: #F4F4F7;
-	.centered {
-		text-align: center;
-		padding: 20px;
+  background: #f4f4f7;
+  .centered {
+    text-align: center;
+    padding: 20px;
   }
-  
+
   ion-content {
-    background: #F8F8F8;
+    background: #f8f8f8;
   }
 
   .attachments {
@@ -75,5 +75,9 @@ page-scan-upload {
     height: 35px;
     width: 35px;
     margin-right: 10px;
+  }
+  .attach-block {
+    font-size: 18px;
+    margin: 20px 15px 5px 15px;
   }
 }

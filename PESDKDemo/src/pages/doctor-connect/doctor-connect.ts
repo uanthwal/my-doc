@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { Component } from "@angular/core";
+import { NavController, NavParams } from "ionic-angular";
 
 /**
  * Generated class for the DoctorConnectPage page.
@@ -9,16 +9,13 @@ import { NavController, NavParams } from 'ionic-angular';
  */
 
 @Component({
-  selector: 'page-doctor-connect',
-  templateUrl: 'doctor-connect.html',
+  selector: "page-doctor-connect",
+  templateUrl: "doctor-connect.html"
 })
 export class DoctorConnectPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad DoctorConnectPage');
+    console.log("ionViewDidLoad DoctorConnectPage");
   }
-
 }

@@ -12,7 +12,6 @@
 
 </ion-header>
 
-
 <ion-content>
     <ion-refresher (ionRefresh)="doRefresh($event)">
         <ion-refresher-content>
@@ -28,7 +27,9 @@
                 <span [ngClass]="['avtr', doctor.icon]">RP</span>
             </ion-avatar>
             <h2>{{doctor.name}}</h2>
-            <h3>{{doctor.spec}} <span class="count">{{doctor.fee}}</span> </h3>
+            <h3>{{doctor.spec}}
+                <span class="count">{{doctor.fee}}</span>
+            </h3>
             <!-- <b>{{doctor.order_id}}</b>     -->
             <div class="item-note" item-right>
                 <h3>{{doctor.date | date:"dd MMM"}}</h3>
@@ -45,5 +46,4 @@
             <button ion-fab (click)="openModel('sort')"><ion-icon name="md-arrow-dropup"></ion-icon></button>
         </ion-fab-list>
     </ion-fab>
-
 </ion-content>
